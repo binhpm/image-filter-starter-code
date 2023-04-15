@@ -39,7 +39,7 @@ import { filterImageFromURL, deleteLocalFiles } from './util/util';
       return res.status(400).send("Image url is required");
     }
 
-    const filteredpath = await filterImageFromURL(image_url);
+    const filteredpath = await filterImageFromURL(image_url.toString());
     res.sendFile(filteredpath, function () {
       deleteLocalFiles([filteredpath]);
     });
